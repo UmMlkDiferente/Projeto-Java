@@ -3,6 +3,7 @@ public class Main {
         Banco banco = new Banco();
 
         Cliente cliente1 = banco.criarCliente("Vitor");
+        Cliente cliente2 = banco.criarCliente("Rodolfo");
         cliente1.getContaCorrente().depositar(2050);
         cliente1.getContaPoupanca().depositar(1200);
 
