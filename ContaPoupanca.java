@@ -4,7 +4,7 @@ class ContaPoupanca extends ContaBase {
     public void aplicarRendimento() {
         double rendimento = saldo * TAXA_RENDIMENTO;
         saldo += rendimento;
-        System.out.println("Rendimento de " + rendimento + " aplicado. Saldo atual: " + saldo);
+        System.out.println("Rendimento de " + rendimento + " aplicado. Seu Saldo atual é de " + saldo);
     }
 }
 
