@@ -1,11 +1,22 @@
-import java.util.HashMap;
-import java.util.Map;
-class Banco {
-    private final Map<String, Cliente> clientes = new HashMap<>();
+import java.util.ArrayList;
+import java.util.List;
 
-    public Cliente criarCliente(String nome) {
-        Cliente cliente = new Cliente(nome);
-        clientes.put(nome, cliente);
+class Banco {
+    private List<Cliente> clientes = new ArrayList<>();
+    public Cliente criarCliente(String nome){
+        Cliente cliente = new Cliente (nome);
+        clientes.add(cliente);
         return cliente;
     }
+
+    public Cliente buscarCliente(String nome){
+        for (Cliente cliente : clientes) {
+            if (cliente.getNome().equalsIgnoreCase(nome)){
+                return cliente;
+            }
+        }
+        return null;
+
+    }
+
 }
