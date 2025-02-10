@@ -11,6 +11,7 @@ public class Main {
         cliente1.getContaPoupanca().depositar(1200);
 
         cliente1.visualizarSaldo();
+        cliente2.visualizarSaldo();
 
         try {
             cliente1.getContaCorrente().sacar(300);
@@ -36,6 +37,9 @@ public class Main {
             return;
         }
 
+        System.out.println("Saldo inicial do remetente é ");
+        remetente.visualizarSaldo();
+
         System.out.println("Para quem voce deseja fazer a transferencia?");
         String nomeDestinatario = scanner.nextLine();
 
@@ -44,6 +48,9 @@ public class Main {
             System.out.println("CLiente não encontrado");
             return;
         }
+
+        System.out.println("Saldo inicial de conta destino");
+        remetente.visualizarSaldo();
 
         System.out.println("Digite seu valor da transferencia ");
         double valor = scanner.nextDouble();
