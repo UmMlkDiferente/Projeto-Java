@@ -9,6 +9,8 @@ public class Main {
         Cliente cliente2 = banco.criarCliente("Rodolfo");
         cliente1.getContaCorrente().depositar(2050);
         cliente1.getContaPoupanca().depositar(1200);
+        cliente2.getContaCorrente().depositar(1500);
+        cliente2.getContaCorrente().depositar(3000);
 
         while (true) {
             System.out.println("Seja bem vindo, Escolha a opção que deseja ->");
