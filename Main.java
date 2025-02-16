@@ -19,18 +19,20 @@ public class Main {
             System.out.println("2 - Fazer um deposito");
             System.out.println("3 - Fazer um saque");
             System.out.println("4 - Fazer uma transferencia");
-            System.out.println("5 - Sair");
+            System.out.println("5 - Aplicar rendimento na Poupança");
+            System.out.println("6 - Sair");
 
             int opcao = scanner.nextInt();
             scanner.nextLine();
 
-            if (opcao == 5) {
+            if (opcao == 6) {
                 System.out.println("Agradeçemos por utilizar o nosso sistema bancario!");
                 break;
             }
 
             System.out.println("Digite seu nome - ");
             String nome = scanner.nextLine();
+            scanner.nextLine();
             Cliente cliente = banco.buscarCliente(nome);
 
             if (cliente == null) {
@@ -72,6 +74,11 @@ public class Main {
                     System.out.println("Digite o valor de saque");
                     double valorDeSaque = scanner.nextDouble();
                     scanner.nextLine();
+
+                    if (valorDeSaque > 2000){
+                        System.out.println("O limite de saque diário é de 2000 reais.");
+                        break;
+                    }
 
                     try {
                         if (escolhaDeSaque == 1) {
@@ -132,6 +139,10 @@ public class Main {
                     catch (Exception e) {
                         System.out.println("Algo não deu certo, " + e.getMessage());
                     }
+                    break;
+                case 5:
+                    cliente.getContaPoupanca().aplicarRendimento();
+                    System.out.println("Rendimento aplicado com sucesso.");
                     break;
                 default:
                     System.out.println("Algo não deu certo");
