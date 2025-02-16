@@ -10,61 +10,75 @@ public class Main {
         cliente1.getContaCorrente().depositar(2050);
         cliente1.getContaPoupanca().depositar(1200);
 
-        cliente1.visualizarSaldo();
-        cliente2.visualizarSaldo();
+        while (true) {
+            System.out.println("Seja bem vindo, Escolha a opção que deseja ->");
+            System.out.println("1 - Vizualizar saldo");
+            System.out.println("2 - Fazer um deposito");
+            System.out.println("3 - Fazer um saque");
+            System.out.println("4 - Fazer uma transferencia");
+            System.out.println("5 - Sair");
+            int opcao = scanner.nextInt();
+            scanner.nextLine();
 
-        try {
-            cliente1.getContaCorrente().sacar(300);
-            cliente1.getContaCorrente().transferir(cliente1.getContaPoupanca(), 5000);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+            if (opcao == 5) {
+                System.out.println("Agradeçemos por utilizar o nosso sistema bancario!");
+                break;
+            }
+
+            System.out.println("Digite seu nome - ");
+            String nome = scanner.nextLine();
+            Cliente cliente = banco.buscarCliente(nome);
+
+            if (cliente == null) {
+                System.out.println("Infelizmente não foi encontrado em nosso sistema.");
+                continue;
+            }
+            switch (opcao) {
+                case 1:
+                    cliente.visualizarSaldo();
+                    break;
+                case 2:
+                    System.out.println("Digite o valor que você deseja depositar ");
+                    double valorDeDeposito = scanner.nextDouble();
+                    scanner.nextLine();
+                    cliente.getContaCorrente().depositar(valorDeDeposito);
+                    System.out.println("Deposito realizado com sucesso");
+                    break;
+                case 3:
+                    System.out.println("Digite o valor de saque ");
+                    double valorDeSaque = scanner.nextDouble();
+                    scanner.nextLine();
+                    try {
+                        cliente.getContaCorrente().sacar(valorDeSaque);
+                        System.out.println("Saque realizado com sucesso");
+                    } catch (Exception e) {
+                        System.out.println("Algo não deu certo " + e.getMessage());
+                    }
+                    break;
+                case 4:
+                    System.out.println("Digite o nome do destinatário ");
+                    String nomeDoDestinatario = scanner.nextLine();
+                    Cliente destinatario = banco.buscarCliente(nomeDoDestinatario);
+                    if (destinatario == null) {
+                        System.out.println("Cliente não encontrado");
+                        continue;
+                    }
+                    System.out.println("Digite o valor que deseja transferir ");
+                    double valorDeTransferencia = scanner.nextDouble();
+                    scanner.nextLine();
+                    try {
+                        cliente.getContaCorrente().transferir(destinatario.getContaCorrente(), valorDeTransferencia);
+                        System.out.println("Transferência realizada com sucesso!");
+                    } catch (Exception e) {
+                        System.out.println("Algo não deu certo " + e.getMessage());
+                    }
+                    break;
+                default:
+                    System.out.println("Algo não deu certo");
+            }
         }
-
-        cliente1.getContaPoupanca().aplicarRendimento();
-
-        cliente1.visualizarSaldo();
-
-        // agr a transferencia entre eles...
-
-        System.out.println("Compartilhamento entre clientes");
-        System.out.println("Digite seu nome ");
-        String nomeRem = scanner.nextLine();
-
-
-        Cliente remetente = banco.buscarCliente(nomeRem);
-        if (remetente == null){
-            System.out.println("Cliente nao encontrado no momento.");
-            return;
-        }
-
-        System.out.println("Saldo inicial do remetente é ");
-        remetente.visualizarSaldo();
-
-        System.out.println("Para quem voce deseja fazer a transferencia?");
-        String nomeDestinatario = scanner.nextLine();
-
-        Cliente destinatario = banco.buscarCliente(nomeDestinatario);
-        if (destinatario == null){
-            System.out.println("CLiente não encontrado");
-            return;
-        }
-
-        System.out.println("Saldo inicial de conta destino");
-        remetente.visualizarSaldo();
-
-        System.out.println("Digite seu valor da transferencia ");
-        double valor = scanner.nextDouble();
-
-        try {
-            remetente.getContaCorrente().transferir(destinatario.getContaCorrente(), valor);
-            System.out.println("Transferencia realizada!");
-        } catch (Exception e) {
-            System.out.println("Algo não deu certo: " + e.getMessage());
-        }
-
-        remetente.visualizarSaldo();
-        destinatario.visualizarSaldo();
 
         scanner.close();
     }
+
 }
