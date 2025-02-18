@@ -7,11 +7,16 @@ public class Main {
 
         Cliente cliente1 = banco.criarCliente("Vitor");
         Cliente cliente2 = banco.criarCliente("Rodolfo");
+        Cliente cliente3 = banco.criarCliente("Andre");
+        Cliente cliente4 = banco.criarCliente("Jose");
         cliente1.getContaCorrente().depositar(2050);
         cliente1.getContaPoupanca().depositar(1200);
         cliente2.getContaCorrente().depositar(1500);
         cliente2.getContaPoupanca().depositar(3000);
-
+        cliente3.getContaPoupanca().depositar(2000);
+        cliente3.getContaCorrente().depositar(2000);
+        cliente4.getContaCorrente().depositar(1000);
+        cliente4.getContaPoupanca().depositar(2000);
 
         while (true) {
             System.out.println("Seja bem vindo, Escolha a opção que deseja ->");

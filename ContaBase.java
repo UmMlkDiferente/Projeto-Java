@@ -10,7 +10,7 @@ abstract class ContaBase {
             saldo += valor;
             System.out.println("Depósito de " + valor + " realizado. Saldo atual: " + saldo);
         } else {
-            System.out.println("Valor de depósito errado.");
+            System.out.println("Valor de depósito Incorreto.");
         }
     }
 
@@ -19,7 +19,7 @@ abstract class ContaBase {
             saldo -= valor;
             System.out.println("Saque de " + valor + " realizado. Saldo atual: " + saldo);
         } else {
-            throw new Exception("Saldo insuficiente ou valor errado.");
+            throw new Exception("Saldo insuficiente ou valor Incorreto.");
         }
     }
 
@@ -29,7 +29,7 @@ abstract class ContaBase {
             contaDestino.depositar(valor);
             System.out.println("Transferência de " + valor + " realizada com sucesso.");
         } else {
-            throw new Exception("Saldo insuficiente ou valor errado.");
+            throw new Exception("Saldo insuficiente ou valor Incorreto.");
         }
     }
 }
