@@ -1,5 +1,5 @@
 class ContaPoupanca extends ContaBase {
-    private static final double TAXA_RENDIMENTO = 0.03; // 2% ao mês
+    private static final double TAXA_RENDIMENTO = 0.03;
 
     public void aplicarRendimento() {
         double rendimento = saldo * TAXA_RENDIMENTO;
