@@ -18,5 +18,14 @@ class Banco {
         return null;
 
     }
-
+        public void mostrarClientes(){
+        if (clientes.isEmpty()){
+            System.out.println("Nenhum cliente cadastrado ainda.");
+        }
+        else {
+            for (Cliente cliente : clientes){
+                System.out.println(cliente.getNome());
+            }
+        }
+        }
 }
