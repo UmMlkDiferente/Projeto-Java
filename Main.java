@@ -7,19 +7,11 @@ public class Main {
 
         Cliente cliente1 = banco.criarCliente("Vitor");
         Cliente cliente2 = banco.criarCliente("Rodolfo");
-        Cliente cliente3 = banco.criarCliente("Andre");
-        Cliente cliente4 = banco.criarCliente("Jose");
-        Cliente cliente5 = banco.criarCliente("Ana Julia");
         cliente1.getContaCorrente().depositar(2050);
         cliente1.getContaPoupanca().depositar(1200);
         cliente2.getContaCorrente().depositar(1500);
         cliente2.getContaPoupanca().depositar(3000);
-        cliente3.getContaPoupanca().depositar(2000);
-        cliente3.getContaCorrente().depositar(2000);
-        cliente4.getContaCorrente().depositar(1000);
-        cliente4.getContaPoupanca().depositar(2000);
-        cliente5.getContaPoupanca().depositar(1233);
-        cliente5.getContaCorrente().depositar(3499);
+
 
         while (true) {
             System.out.println("Seja bem vindo, Escolha a opção que deseja ->");
@@ -28,13 +20,12 @@ public class Main {
             System.out.println("3 - Fazer um saque");
             System.out.println("4 - Fazer uma transferencia");
             System.out.println("5 - Aplicar rendimento na Poupança");
-            System.out.println("6 - Mostrar todos os clientes");
-            System.out.println("7 - Sair");
+            System.out.println("6 - Sair");
 
             int opcao = scanner.nextInt();
             scanner.nextLine();
 
-            if (opcao == 7) {
+            if (opcao == 6) {
                 System.out.println("Agradeçemos por utilizar o nosso sistema bancario!");
                 break;
             }
@@ -155,12 +146,6 @@ public class Main {
                     break;
                 default:
                     System.out.println("Algo não deu certo");
-
-                case 6:{
-                    System.out.println("Esse são os clientes de nosso banco ->");
-                    banco.mostrarClientes();
-                    break;
-                }
             }
         }
 
