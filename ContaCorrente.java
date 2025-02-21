@@ -3,6 +3,7 @@ class ContaCorrente extends ContaBase {
 
     @Override
     public void sacar(double valor) throws Exception {
+
         if (valor > LIMITE_SAQUE) {
             throw new Exception("O valor excede o limite de saque de " + LIMITE_SAQUE);
         }
