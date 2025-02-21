@@ -1,5 +1,5 @@
 class ContaCorrente extends ContaBase {
-    private static final double LIMITE_SAQUE = 2000.0;
+    private static final double LIMITE_SAQUE = 1500.0;
 
     @Override
     public void sacar(double valor) throws Exception {

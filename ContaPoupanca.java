@@ -7,4 +7,3 @@ class ContaPoupanca extends ContaBase {
         System.out.println("Rendimento de " + rendimento + " aplicado. Seu Saldo atual é de " + saldo);
     }
 }
-
