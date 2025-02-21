@@ -8,4 +8,13 @@ class ContaCorrente extends ContaBase {
         }
         super.sacar(valor);
     }
+    public void depositar (double valor) {
+        if (valor > 0) {
+            saldo += valor;
+            System.out.println("Deposito de " + valor + "realizado. Saldo atual é de " + saldo);
+        }
+        else {
+            System.out.println("Algo não deu certo.");
+        }
+    }
 }
