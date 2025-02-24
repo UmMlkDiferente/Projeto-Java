@@ -1,25 +1,22 @@
 import java.util.Scanner;
+import java.util.List;
+import java.lang.String;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Clientes clientes = new Clientes();
 
-        Cliente cliente1 = clientes.criarCliente("Vitor");
-        Cliente cliente2 = clientes.criarCliente("Rodolfo");
-        Cliente cliente3 = clientes.criarCliente("Andre");
-        Cliente cliente4 = clientes.criarCliente("Jose");
-        Cliente cliente5 = clientes.criarCliente("Ana Julia");
+        Cliente cliente1 = clientes.criarCliente("Vitor", "01/01/1990");
+        Cliente cliente2 = clientes.criarCliente("Rodolfo", "02/12/2000");
+        Cliente cliente3 = clientes.criarCliente("Andre" , "12/01/1991");
         cliente1.getContaCorrente().depositar(2050);
         cliente1.getContaPoupanca().depositar(1200);
         cliente2.getContaCorrente().depositar(1500);
         cliente2.getContaPoupanca().depositar(3000);
         cliente3.getContaPoupanca().depositar(2000);
         cliente3.getContaCorrente().depositar(2000);
-        cliente4.getContaCorrente().depositar(1000);
-        cliente4.getContaPoupanca().depositar(2000);
-        cliente5.getContaPoupanca().depositar(1233);
-        cliente5.getContaCorrente().depositar(3499);
 
         while (true) {
             System.out.println("Seja bem vindo, Escolha a opção que deseja ->");
@@ -49,6 +46,8 @@ public class Main {
             }
             switch (opcao) {
                 case 1:
+                    System.out.println("Nome - " + cliente.getNome());
+                    System.out.println("Data de nascimento - " + cliente.getData_Nasc());
                     cliente.visualizarSaldo();
                     break;
                 case 2:

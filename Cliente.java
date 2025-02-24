@@ -4,17 +4,23 @@ import java.lang.String;
 
 class Cliente {
     private String nome;
+    private String data_nasc;
     private ContaCorrente contaCorrente;
     private ContaPoupanca contaPoupanca;
 
-    public Cliente(String nome) {
+    public Cliente(String nome, String data_nasc) {
         this.nome = nome;
+        this.data_nasc = data_nasc;
         this.contaCorrente = new ContaCorrente();
         this.contaPoupanca = new ContaPoupanca();
     }
 
     public String getNome() {
         return nome;
+    }
+
+    public String getData_Nasc() {
+        return data_nasc;
     }
 
     public ContaCorrente getContaCorrente() {
@@ -33,8 +39,9 @@ class Cliente {
 
     class Clientes {
     private List<Cliente> clientes = new ArrayList<>();
-    public Cliente criarCliente(String nome){
-        Cliente cliente = new Cliente (nome);
+
+    public Cliente criarCliente(String nome, String data_nasc){
+        Cliente cliente = new Cliente (nome, data_nasc);
      clientes.add(cliente);
      return cliente;
     }
@@ -53,7 +60,7 @@ class Cliente {
         }
         else {
             for (Cliente cliente : clientes){
-                System.out.println(cliente.getNome());
+                System.out.println("nome - " + cliente.getNome() + "\n Data de nascimento - " + cliente.getData_Nasc());
             }
         }
     }
