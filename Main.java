@@ -3,15 +3,23 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Banco banco = new Banco();
+        Clientes clientes = new Clientes();
 
-        Cliente cliente1 = banco.criarCliente("Vitor");
-        Cliente cliente2 = banco.criarCliente("Rodolfo");
+        Cliente cliente1 = clientes.criarCliente("Vitor");
+        Cliente cliente2 = clientes.criarCliente("Rodolfo");
+        Cliente cliente3 = clientes.criarCliente("Andre");
+        Cliente cliente4 = clientes.criarCliente("Jose");
+        Cliente cliente5 = clientes.criarCliente("Ana Julia");
         cliente1.getContaCorrente().depositar(2050);
         cliente1.getContaPoupanca().depositar(1200);
         cliente2.getContaCorrente().depositar(1500);
         cliente2.getContaPoupanca().depositar(3000);
-
+        cliente3.getContaPoupanca().depositar(2000);
+        cliente3.getContaCorrente().depositar(2000);
+        cliente4.getContaCorrente().depositar(1000);
+        cliente4.getContaPoupanca().depositar(2000);
+        cliente5.getContaPoupanca().depositar(1233);
+        cliente5.getContaCorrente().depositar(3499);
 
         while (true) {
             System.out.println("Seja bem vindo, Escolha a opção que deseja ->");
@@ -20,20 +28,20 @@ public class Main {
             System.out.println("3 - Fazer um saque");
             System.out.println("4 - Fazer uma transferencia");
             System.out.println("5 - Aplicar rendimento na Poupança");
-            System.out.println("6 - Sair");
+            System.out.println("6 - Mostrar todos os clientes");
+            System.out.println("7 - Sair");
 
             int opcao = scanner.nextInt();
             scanner.nextLine();
 
-            if (opcao == 6) {
+            if (opcao == 7) {
                 System.out.println("Agradeçemos por utilizar o nosso sistema bancario!");
                 break;
             }
 
             System.out.println("Digite seu nome - ");
             String nome = scanner.nextLine();
-            scanner.nextLine();
-            Cliente cliente = banco.buscarCliente(nome);
+            Cliente cliente = clientes.buscarCliente(nome);
 
             if (cliente == null) {
                 System.out.println("Infelizmente não foi encontrado em nosso sistema.");
@@ -97,7 +105,7 @@ public class Main {
                 case 4:
                     System.out.println("\nDigite o nome do destinatário ");
                     String nomeDoDestinatario = scanner.nextLine();
-                    Cliente destinatario = banco.buscarCliente(nomeDoDestinatario);
+                    Cliente destinatario = clientes.buscarCliente(nomeDoDestinatario);
 
 
                     if (destinatario == null) {
@@ -146,6 +154,12 @@ public class Main {
                     break;
                 default:
                     System.out.println("Algo não deu certo");
+
+                case 6:{
+                    System.out.println("Esse são os clientes de nosso banco ->");
+                    clientes.mostrarClientes();
+                    break;
+                }
             }
         }
 
