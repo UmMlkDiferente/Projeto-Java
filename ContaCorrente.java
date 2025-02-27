@@ -1,11 +1,10 @@
-class ContaCorrente extends ContaBase {
-    private static final double LIMITE_SAQUE = 2000.0;
+class ContaCorrente extends ContaBase {                                                         //assim como a conta poupança pode ser feito na conta corrente saque e deposito.
+    private static final double LimiteSaque = 2000.0;
 
-    @Override
     public void sacar(double valor) throws Exception {
 
-        if (valor > LIMITE_SAQUE) {
-            throw new Exception("O valor excede o limite de saque de " + LIMITE_SAQUE);
+        if (valor > LimiteSaque) {
+            throw new Exception("O valor excede o limite de saque de " + LimiteSaque);
         }
         super.sacar(valor);
     }
